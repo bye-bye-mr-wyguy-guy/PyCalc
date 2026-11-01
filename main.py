@@ -105,10 +105,35 @@ def ratsimp(a, b):
 
     return f"{a // x}:{b // x}"
 
+
+def fuladd(a, mode):
+
+    def fullen(a):
+        total = 0
+        while a >= 0:
+            total += a
+            a -= 1
+        return total
+
+    total = 0
+
+    if mode == 1:
+        return fullen(a)
+
+    elif mode == 2:
+        while a >= 0:
+            total += fullen(a)
+            a -= 1
+
+    else:
+        raise ValueError("Unknown mode")
+
+    return total
+
         
 #Gets problem info/ creates problem
-oper = int(input('Enter Operation(sum=1, multiply=2, divide=3, difference=4, power=5, mean=6, divide with remainder=7, factorial=8, exponential growth=9, scientific conversion=10, percent of=11, converter=12, ratio simplifier=13):'))
-if oper < 1 or oper > 13:
+oper = int(input('Enter Operation(sum=1, multiply=2, divide=3, difference=4, power=5, mean=6, divide with remainder=7, factorial=8, exponential growth=9, scientific conversion=10, percent of=11, converter=12, ratio simplifier=13, fullen and adden numbers=14):'))
+if oper < 1 or oper > 14:
     exit('Unknown operator')
 if oper ==6:
     num = int(input('How many data points?'))
@@ -137,6 +162,11 @@ if oper ==12:
     mode = int(input("What to what?(1= mi to km, 2= km to mi, 3=c to f, 4=f to c, 5=lbs to kg, 6=kg to lbs, 7=fl oz to ml, 8=ml to fl oz):"))
     a = float(input("What amount?"))
     print(convert(a, mode))
+    exit("Thank you for using PyCalc!")
+if oper ==14:
+    a = int(input("What number?"))
+    mode = int(input("What mode(1=Fullen, 2=Adden)"))
+    print(fuladd(a, mode))
     exit("Thank you for using PyCalc!")
 a = float(input('Enter 1st number: '))
 b = float(input('Enter 2nd number: '))
