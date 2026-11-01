@@ -194,5 +194,5 @@ elif oper ==13:
 
     
 
-  #This is a Python 13-operation calculator by Wyatt Fullerton
+  #This is a Python 14-operation calculator by Wyatt Fullerton
   
